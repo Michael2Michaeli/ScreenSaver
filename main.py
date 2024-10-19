@@ -8,7 +8,7 @@ import ctypes  # Importing ctypes to interact with Windows API
 
 # Settings
 settings = {
-    "queue_size": 10,  # Size of the queue, how much images in the Image file
+    "queue_size": 11,  # Size of the queue, how much images in the Image file
     "start_time": "08:00",  # Start time  (HH:MM)
     "end_time": "23:50",  # End time  (HH:MM)
     "time_between_images": 10000,  # Time between images updates in (milliseconds)
@@ -16,8 +16,8 @@ settings = {
 }
 
 # 2 Folders input=queue images, and delete images
-input_dir = "C:/Users/User/Desktop/images/*"
-deleted_img_dir = "C:/Users/User/Desktop/deleted images"
+input_dir = "D:\pic\*"
+deleted_img_dir = "D:\pic\arc"
 
 
 #chicking if the dir is existing
@@ -196,6 +196,10 @@ def key_handler(event):
             except Exception as e:
                 #print error
                 print(f"Error moving file: {old_image}. Error: {e}")
+    # Exit the program if Esc is pressed
+    elif event.keysym == 'Escape':
+        window.destroy()  # Close the window, which will exit the program
+
 
 
 # Bind the key handler to the window
